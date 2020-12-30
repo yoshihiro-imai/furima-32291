@@ -1,4 +1,5 @@
 FactoryBot.define do
+  
   factory :user do
     nick_name              {"テスト"}
     email                 {Faker::Internet.free_email}
