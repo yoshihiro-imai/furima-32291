@@ -14,6 +14,7 @@
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
+    
     <ul class='lists-right'>        
       <% if  user_signed_in? %>
       <li><%= link_to current_user.nick_name, "#" , class: "user-nickname" %></li> 
