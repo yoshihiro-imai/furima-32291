@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do #ルーティング設定
 
   devise_for :users
   root to: "items#index"

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  with_options presence: true do
+  with_options presence: true do #バリデーションの設定
     validates :birthday
     validates :nick_name
     validates :first_name,:last_name,format:{

@@ -14,8 +14,8 @@
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
-    
-    <ul class='lists-right'>        
+    <%#パスの設定の表示の設定%>
+    <ul class='lists-right'>    
       <% if  user_signed_in? %>
       <li><%= link_to current_user.nick_name, "#" , class: "user-nickname" %></li> 
      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 

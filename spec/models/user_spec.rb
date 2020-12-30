@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper' #単体テストコード
 
 RSpec.describe User, type: :model do
   before do
