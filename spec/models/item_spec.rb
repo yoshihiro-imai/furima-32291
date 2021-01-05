@@ -5,7 +5,7 @@ RSpec.describe Item, type: :model do
     @item = FactoryBot.build(:item)
   end
   
-  describe '商品の出品' do
+  context '商品の出品が出来ない時' do
 
     it "商品の画像を１枚つけることが必須であること" do
     
@@ -14,13 +14,13 @@ RSpec.describe Item, type: :model do
     expect(@item.errors.full_messages).to include("Image can't be blank")
     end
 
-    it "商品名が必須であること" do
+    it "商品名の入力がなければ、出品が出来ないということ" do
     @item.title = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Title can't be blank")
     end
 
-    it "商品の説明が必須であること" do
+    it "商品の説明の入力が必須であること" do
     @item.explanation = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Explanation can't be blank")
@@ -75,9 +75,14 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price is invalid")
  
     end
+  end
+
+  context '商品の出品ができる時' do
+
     it "必要な情報を適切に入力すると、商品の出品ができること" do
 
       expect(@item).to be_valid
     end
-  end
+  end  
+  
 end
