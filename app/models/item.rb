@@ -16,10 +16,12 @@ class Item < ApplicationRecord
     validates :explanation
     validates :image
     validates :category_id,numericality: { other_than: 1 }
-    validates :delivery_days_id,  numericality: { other_than: 1 }
-    validates :fee_id,            numericality: { other_than: 1 }
-    validates :prefecture_id,     numericality: { other_than: 1 }
-    validates :state_id,          numericality: { other_than: 1 }
+     with_options numericality: { other_than: 1 } do
+      validates :delivery_days_id
+      validates :fee_id
+      validates :prefecture_id
+      validates :state_id
+     end
     validates :price,             numericality:{greater_than:300,less_than:9999999}
     validates :price,format:{with: /\A([1-9]\d*,)*[1-9]\d*\z/ }
   end

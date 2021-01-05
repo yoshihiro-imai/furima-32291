@@ -26,45 +26,45 @@ RSpec.describe Item, type: :model do
     expect(@item.errors.full_messages).to include("Explanation can't be blank")
     end
     it "カテゴリーの情報が何も選択できていない場合には登録ができないということ" do
-    @item.category_id = "1"
+    @item.category_id = 1
     @item.valid?
     expect(@item.errors.full_messages).to include("Category must be other than 1")
     end
     it "商品の情報が何も選択できていない場合には登録ができないということ" do
-    @item.state_id = "1"
+    @item.state_id = 1
     @item.valid?
     expect(@item.errors.full_messages).to include("State must be other than 1")
     end
     it "配送料の情報が何も選択できていない場合には登録ができないということ" do
-    @item.fee_id = "1"
+    @item.fee_id = 1
     @item.valid?
     expect(@item.errors.full_messages).to include("Fee must be other than 1")
     end
     it "発送元の地域の情報が何も選択していない場合には登録ができないということ" do
-      @item.prefecture_id = "1"
+      @item.prefecture_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
 
     end
     it "発送までの日数についての情報が何も選択していない場合には登録ができないということ" do
-      @item.delivery_days_id = "1"
+      @item.delivery_days_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery days must be other than 1")
 
     end
-    it "価格についての情報が何も選択していないばい場合には登録ができないということ" do
+    it "価格についての情報が何も選択していない場合には登録ができないということ" do
       @item.price = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it "価格の範囲が、300円未満の数値だと登録ができないということ" do
-     @item.price = "250"
+     @item.price = 250
      @item.valid?
      expect(@item.errors.full_messages).to include("Price must be greater than 300")
 
     end
     it "価格の範囲が、9999999円より大きい数値だと登録ができないということ" do
-      @item.price = "1000000000"
+      @item.price = 1000000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than 9999999") 
     end
@@ -76,6 +76,8 @@ RSpec.describe Item, type: :model do
  
     end
     it "必要な情報を適切に入力すると、商品の出品ができること" do
+
+      expect(@item).to be_valid
     end
   end
 end
