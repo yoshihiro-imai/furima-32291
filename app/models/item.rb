@@ -15,8 +15,8 @@ class Item < ApplicationRecord
     validates :title 
     validates :explanation
     validates :image
-    validates :category_id,numericality: { other_than: 1 }
-     with_options numericality: { other_than: 1 } do
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
       validates :delivery_days_id
       validates :fee_id
       validates :prefecture_id
