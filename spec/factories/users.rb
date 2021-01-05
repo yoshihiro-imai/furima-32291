@@ -9,5 +9,6 @@ FactoryBot.define do #FactoryBot設定
     first_name_kana       {"カナ"}
     last_name_kana        {"カナ"}
     birthday               {"1931-01-02"}
+    
   end
 end
