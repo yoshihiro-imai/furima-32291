@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
 
     @order_address = OrderAddress.new(order_params)
     @item = Item.find(params[:item_id])
- binding.pry
     if @order_address.valid?
       pay_item
      @order_address.save
@@ -53,7 +52,7 @@ end
 
   def move_to_index
     @item = Item.find(params[:item_id])
-    if current_user == @item.user
+    if current_user == @item.user || @item.order.present?
     redirect_to root_path
     end
   end
