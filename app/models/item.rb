@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   belongs_to :delivery_days
   belongs_to :prefecture
   belongs_to :state
+  has_one :order
+  
 
   
   with_options presence: true do
