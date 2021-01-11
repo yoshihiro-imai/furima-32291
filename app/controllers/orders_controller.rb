@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   
   before_action :authenticate_user!
 
-  before_action :set_item
+  before_action :set_item, only:
 
   def index
     @order_address = OrderAddress.new
@@ -45,7 +45,7 @@ end
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
 end
