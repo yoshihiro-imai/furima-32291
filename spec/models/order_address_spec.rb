@@ -15,8 +15,8 @@ RSpec.describe OrderAddress, type: :model do
     expect(@order_address).to be_valid
   end
 
-  it "番地の情報がなくても商品を購入することができる。" do
-    @order_address.house_number = nil
+  it "建物名の情報がなくても商品を購入することができる。" do
+    @order_address.building_name = nil
     expect(@order_address).to be_valid
   end
 
@@ -59,6 +59,12 @@ RSpec.describe OrderAddress, type: :model do
         
   end
 
+  it "購入には番地の情報が必須であること" do
+    @order_address.house_number = nil
+    @order_address.valid?
+    expect(@order_address.errors.full_messages).to include("House number can't be blank")
+        
+  end
 
 
   it "購入には電話番号の情報が必須であること" do 
